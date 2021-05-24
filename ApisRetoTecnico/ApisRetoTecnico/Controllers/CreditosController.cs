@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ApisRetoTecnico.Models;
+using Microsoft.Data.SqlClient;
 
 namespace ApisRetoTecnico.Controllers
 {
@@ -79,8 +80,25 @@ namespace ApisRetoTecnico.Controllers
         [HttpPost]
         public async Task<ActionResult<Creditos>> PostCreditos(Creditos creditos)
         {
-            _context.Creditos.Add(creditos);
-            await _context.SaveChangesAsync();
+         //   _context.Creditos.Add(creditos);
+           // await _context.SaveChangesAsync();
+
+            if (ModelState.IsValid)
+            {
+                SqlConnection conn = (SqlConnection)_context.Database.GetDbConnection();
+                SqlCommand cmd = conn.CreateCommand();
+                conn.Open();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "Sp_CargarCredito";
+                cmd.Parameters.Add("@ValorCapital", System.Data.SqlDbType.Int).Value = creditos.ValorCapital;
+                cmd.Parameters.Add("@Frecuencia", System.Data.SqlDbType.NVarChar, 20).Value = creditos.Frecuencia;
+                cmd.Parameters.Add("@IdCliente", System.Data.SqlDbType.Int).Value = creditos.IdCliente;
+                cmd.ExecuteNonQuery();
+                conn.Close();
+
+
+            }
+
 
             return CreatedAtAction("GetCreditos", new { id = creditos.IdCredito }, creditos);
         }
