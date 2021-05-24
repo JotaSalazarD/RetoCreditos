@@ -25,5 +25,7 @@ namespace ApisRetoTecnico.Models
         public DbSet<ApisRetoTecnico.Models.Departamentos> Departamentos { get; set; }
 
         public DbSet<ApisRetoTecnico.Models.CuposClientes> CuposClientes { get; set; }
+
+        public DbSet<ApisRetoTecnico.Models.Creditos> Creditos { get; set; }
     }
 }
