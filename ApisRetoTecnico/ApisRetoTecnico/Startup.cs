@@ -33,7 +33,10 @@ namespace ApisRetoTecnico
             services.AddDbContext<ApisRetoTecnicoContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ApisRetoTecnicoContext")));
 
-           
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+            });
 
 
 
@@ -58,6 +61,12 @@ namespace ApisRetoTecnico
                 endpoints.MapControllers();
             });
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
         }
     }
