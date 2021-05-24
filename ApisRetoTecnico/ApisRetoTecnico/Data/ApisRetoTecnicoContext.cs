@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using ApisRetoTecnico.Models;
 
 namespace ApisRetoTecnico.Models
 {
@@ -14,5 +15,7 @@ namespace ApisRetoTecnico.Models
         }
 
         public DbSet<ApisRetoTecnico.Models.TiposIdentificacion> TiposIdentificacion { get; set; }
+
+        public DbSet<ApisRetoTecnico.Models.Clientes> Clientes { get; set; }
     }
 }
