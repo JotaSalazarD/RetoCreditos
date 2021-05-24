@@ -23,5 +23,7 @@ namespace ApisRetoTecnico.Models
         public DbSet<ApisRetoTecnico.Models.Municipios> Municipios { get; set; }
 
         public DbSet<ApisRetoTecnico.Models.Departamentos> Departamentos { get; set; }
+
+        public DbSet<ApisRetoTecnico.Models.CuposClientes> CuposClientes { get; set; }
     }
 }
