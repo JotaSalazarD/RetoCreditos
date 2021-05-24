@@ -1,0 +1,29 @@
+
+insert into Plazos (Desde,Hasta,Plazo)
+select 0,	100000,	2 UNION ALL
+select 100001,	500000,4 UNION ALL
+select  500001,	1000000,6 UNION ALL
+select 1000001,	999999999999,12
+
+insert into departamentos (CodDepartamento,NombreDepartamento)
+select '05','ANTIOQUIA' UNION ALL
+select '06','AMAZONAS'  UNION ALL                                      
+select '08','ATLANTICO' UNION ALL                                       
+select '11','STAFE DE BOGOTA' UNION ALL                                   
+select '13','BOLIVAR' UNION ALL                                          
+select '15','BOYACA' UNION ALL                                         
+select '17','CALDAS' UNION ALL                                          
+select '18','CAQUETA' 
+
+insert into Municipios (IdDepartamento,CodMunicipio,NombreMunicipio)
+select 1,	'05001','MEDELLIN' UNION ALL
+select 1,	'05002','ABEJORRAL'UNION ALL                                         
+select 1,	'05004','ABRIAQUI  'UNION ALL                                        
+select 1,	'05021','ALEJANDRIA'UNION ALL                                        
+select 1,	'05030','AMAGA'     UNION ALL                                        
+select 2,	'05031','AMALFI'    UNION ALL                                        
+select 3,	'05034','ANDES '    UNION ALL                                        
+select 1,	'05036','ANGELOPOLIS' UNION ALL                                      
+select 4,	'05038','ANGOSTURA ' UNION ALL                                       
+select 5,	'05040','ANORI      '                                      
+                                    
