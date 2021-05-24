@@ -11,13 +11,20 @@ namespace ApisRetoTecnico.Models
     {
         [Key]
         public int IdTipoIdentificacion { get; set; }
-
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
         public string TipoIdentificacion { get; set; }
+        [StringLength(10)]
+        [Required(ErrorMessage = "El Tipo es obligatorio ")]
+        [MinLength(1, ErrorMessage = "El tipo debe ser minimo de 1 caracter")]
+        [MaxLength(10, ErrorMessage = "El código debe ser máximo de 10 caracteres")]
 
 
         public string NombreIdentificacion { get; set; }
- 
+        [StringLength(50)]
+        [Required(ErrorMessage = "El nombre es obligatorio ")]
+        [MinLength(1, ErrorMessage = "El nombre debe ser minimo de 1 caracter")]
+        [MaxLength(50, ErrorMessage = "El nombre debe ser máximo de 50 caracteres")]
 
     }
 }
