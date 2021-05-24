@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PruebasUnitarias": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

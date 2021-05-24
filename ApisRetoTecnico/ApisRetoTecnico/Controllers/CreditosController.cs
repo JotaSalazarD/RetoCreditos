@@ -81,7 +81,7 @@ namespace ApisRetoTecnico.Controllers
         public async Task<ActionResult<Creditos>> PostCreditos(Creditos creditos)
         {
          //   _context.Creditos.Add(creditos);
-           // await _context.SaveChangesAsync();
+         
 
             if (ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace ApisRetoTecnico.Controllers
 
 
             }
-
+             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCreditos", new { id = creditos.IdCredito }, creditos);
         }
