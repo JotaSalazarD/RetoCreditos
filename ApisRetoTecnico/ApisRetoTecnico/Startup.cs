@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using ApisRetoTecnico.Models;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.IO;
 
 namespace ApisRetoTecnico
 {
@@ -35,7 +37,10 @@ namespace ApisRetoTecnico
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Reto Técnico Créditos", Version = "v1" });
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
 
 
@@ -65,7 +70,7 @@ namespace ApisRetoTecnico
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Apis");
             });
 
         }
