@@ -19,5 +19,7 @@ namespace ApisRetoTecnico.Models
         public DbSet<ApisRetoTecnico.Models.Clientes> Clientes { get; set; }
 
         public DbSet<ApisRetoTecnico.Models.Plazos> Plazos { get; set; }
+
+        public DbSet<ApisRetoTecnico.Models.Municipios> Municipios { get; set; }
     }
 }
